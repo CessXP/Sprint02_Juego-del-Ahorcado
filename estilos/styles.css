@@ -1,0 +1,426 @@
+body{
+    width: auto;
+    height: auto;
+    background: #F3F5FC;
+}
+
+.logo{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+
+    position: absolute;
+    width: 120px;
+    height: 48px;
+    left: 1em;
+    top: 40px;
+}
+
+.logo img{
+    position: absolute;
+    left: 44px;
+  
+}
+
+.boton_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: visible;
+    
+}
+
+.inicio_juego{
+    position: absolute;
+    background: #0A3871;
+    border-radius: 24px;
+    width: 317px;
+    height: 114px;
+    top: 40%;
+    cursor: pointer;
+}
+
+.inicio_juego:hover, .nuevo_juego:hover{
+    transform: scale(1.05);
+}
+
+.inicio_juego span, .nuevo_juego span, .nuevo_palabra span{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    align-items: center;
+    text-align: center;
+
+    /* White */
+
+    color: #FFFFFF;
+
+}
+
+.agregar_palabra{
+    cursor: pointer;
+    position: absolute;
+    width: 280px;
+    height: 67px;
+    top: 60%;
+    border: 1px solid #0A3871;
+    border-radius: 24px;
+
+}
+
+.agregar_palabra:hover, .desistir:hover{
+    transform: scale(1.05);
+   
+}
+
+.agregar_palabra span, .desistir span , .cancelar span{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+
+    /* Dark blue/dark-blue-300 */
+
+    color: #0A3871;
+}
+
+.figura{
+    position: fixed;
+    width: 100%;
+    height: 360px;
+    display: flex;
+    justify-content: center;
+    top: 0%;
+    padding: 0 10px 0 10px;
+}
+
+.figura .rectangulo0 {
+    width: 290px;
+    height: 5px;
+    background: #428bca;
+    visibility: hidden;
+    position: fixed;
+    display: flex;
+    background: #0A3871;
+    border-radius: 8px;
+    top: 47%;
+}
+
+
+.figura .rectangulo1 {
+    position: fixed;
+    width: 4.5px;
+    height: 250px;
+    top: 9%;
+    margin-left: -21%;
+    display: flex;
+    background: #0A3871;
+    border-radius: 8px;
+    visibility: hidden;
+}
+.rectangulo1::before{
+    content: "";
+    display: block;
+    padding-top: 25%;
+}
+
+.figura .rectangulo2 {
+    position: fixed;
+    width: 177.75px;
+    height: 4.5px;
+    top: 9%;
+    margin-left: -8.5%;
+    display: flex;
+    background: #0A3871;
+    border-radius: 8px;
+    visibility: hidden;
+}
+
+.figura .rectangulo3 {
+    position: fixed;
+    width: 4.5px;
+    height: 40.5px;
+    
+    top: 9%;
+    display: flex;
+    background: #0A3871;
+    border-radius: 8px;
+    visibility: hidden;
+}
+
+.figura .rectangulo4 {
+    position: fixed;
+    top: 15%;
+    display: flex;
+    border: 3px solid #0A3871;
+    border-radius: 8px;
+    visibility: hidden;
+    width: 63px;
+    height: 63px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.figura .rectangulo5 {
+    position: fixed;
+    width: 4.5px;
+    height: 80px;
+    top: 25%;
+    display: flex;
+    background: #0A3871;
+    border-radius: 8px;
+    visibility: hidden;
+}
+
+.figura .rectangulo6 {
+    position: fixed;
+    width: 4.5px;
+    height: 60px;
+    top: 25%;
+    left: 49.3%;
+    display: flex;
+    background: #0A3871;
+    border-radius: 8px;
+    visibility: hidden;
+    transform: rotate(30deg);
+}
+
+.figura .rectangulo7 {
+    position: fixed;
+    width: 4.5px;
+    height: 60px;
+    top: 25%;
+    left: 51.8%;
+    display: flex;
+    background: #0A3871;
+    border-radius: 8px;
+    visibility: hidden;
+    transform: rotate(-30deg);
+}
+
+.figura .rectangulo8 {
+    position: fixed;
+    width: 4.5px;
+    height: 60px;
+    top: 36%;
+    left: 49.3%;
+    display: flex;
+    background: #0A3871;
+    border-radius: 8px;
+    visibility: hidden;
+    transform: rotate(30deg);
+}
+
+.figura .rectangulo9 {
+    position: fixed;
+    width: 4.5px;
+    height: 60px;
+    top: 36%;
+    left: 51.8%;
+    display: flex;
+    background: #0A3871;
+    border-radius: 8px;
+    visibility: hidden;
+    transform: rotate(-30deg);
+}
+
+#ahorcado{
+    visibility: hidden;
+}
+
+#resultado{
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    top: 50%;
+   
+}
+
+#letters{
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    top: 54%;
+   
+}
+
+.texto{
+    color: #0A3871;
+    font-size: 80px;
+}
+
+.ganado{
+    color: green;
+    font-size: 18px;
+    position: fixed;
+    top: 30%;
+    left: 70%;
+}
+.perdedor{
+    color: red;
+    font-size: 18px;
+    position: fixed;
+    top: 30%;
+    left: 62%;
+}
+
+#historial{
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    top: 70%;
+}
+
+.history{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 150%;
+    /* identical to box height, or 36px */
+
+    text-align: center;
+
+    /* Gray/gray-400 */
+
+    color: #495057;
+}
+
+.botones_juego, .botones_agregar{
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    top: 80%;
+    padding: 0 10px 0 10px;
+       
+}
+
+.nuevo_juego, .nuevo_palabra{
+    background: #0A3871;
+    border-radius: 24px;
+    width: 332px;
+    height: 67px;
+    cursor: pointer;
+    
+    
+}
+
+.desistir, .cancelar{
+    cursor: pointer;
+    width: 332px;
+    height: 67px;
+    border: 1px solid #0A3871;
+    border-radius: 24px;
+    margin-left: 5em;
+}
+
+#agregar{
+    visibility: hidden;
+}
+
+#guardar{
+    position: absolute;
+    width: 577px;
+    left: 240px;
+    top: 168px;
+    border-style: hidden;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 150%;
+
+    color: #0A3871;
+    background: transparent;
+
+
+}
+
+
+#guardar:focus{
+    outline: none;
+
+}
+
+#guardar{
+    resize: none;
+}
+
+::placeholder{
+
+    border-style: hidden;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 150%;
+
+    color: #0A3871;
+    background: transparent;
+
+}
+
+.nuevo_palabra:hover , .cancelar:hover{
+    transform: scale(1.05);
+}
+
+.cancelar:active {
+   
+    transform: translateY(4px);
+
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+      background: rgb(31, 30, 30);
+    }
+
+    .inicio_juego, .nuevo_juego, .nuevo_palabra{
+        background: #082c58;
+    }
+    
+    .inicio_juego span{
+        color: rgb(207, 207, 207);
+    }
+
+    .agregar_palabra, .desistir, .cancelar{
+        background: rgb(187, 184, 184);
+    }
+  }
+
+  @media screen and  (max-width: 480px){
+                
+    .inicio_juego{
+        transform: scale(0.8);
+    }
+
+    .agregar_palabra{
+        transform: scale(0.8);
+    }
+
+
+    #resultado {
+        transform: scale(0.7);
+    }
+
+    #resultado .texto{
+
+        font-size: 45px;
+
+    }
+
+
+}
+
+
